@@ -366,7 +366,7 @@ elif page == "🌬 Wind Prediction":
 
             with c2:
                 st.metric("💧 Humidity", f"{weather['humidity']} %")
-                st.metric("☁
+                st.metric("☁ Cloud Cover", f"{weather['cloud_cover']} %")
 
 # ---------------- CHATBOT ----------------
 
