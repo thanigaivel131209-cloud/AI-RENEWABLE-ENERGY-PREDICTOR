@@ -590,7 +590,7 @@ st.markdown("---")
 # SOLAR PREDICTION PAGE
 # ==============================
 
-elif page == "☀️ Solar Prediction":
+if page == "☀️ Solar Prediction":
 
     st.markdown(
         "<h1>☀️ Solar Energy Prediction</h1>",
