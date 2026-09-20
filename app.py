@@ -23,6 +23,47 @@ st.set_page_config(
 
 
 # ==============================
+# BACKGROUND IMAGE
+# ==============================
+
+def set_background():
+
+    image_path = "background.png"
+
+    if os.path.exists(image_path):
+
+        with open(image_path, "rb") as image_file:
+
+            encoded_image = base64.b64encode(
+                image_file.read()
+            ).decode()
+
+        st.markdown(
+            f"""
+            <style>
+
+            .stApp {{
+                background-image:
+                linear-gradient(
+                    rgba(255, 255, 255, 0.78),
+                    rgba(255, 255, 255, 0.78)
+                ),
+                url("data:image/png;base64,{encoded_image}");
+
+                background-size: cover;
+                background-position: center;
+                background-attachment: fixed;
+            }}
+
+            </style>
+            """,
+            unsafe_allow_html=True
+        )
+
+
+set_background()
+
+# ==============================
 # CUSTOM CSS
 # ==============================
 
