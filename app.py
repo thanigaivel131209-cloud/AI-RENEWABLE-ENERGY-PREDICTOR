@@ -321,47 +321,66 @@ def get_wind_prediction(weather):
     return max(float(prediction), 0)
 
 # ==============================
-# SIDEBAR NAVIGATION
+# APP NAVIGATION
 # ==============================
 
-st.sidebar.markdown(
-    """
-    <h1 style="text-align:center;">☀️ RE AI</h1>
-    <p style="text-align:center;">
-    Renewable Energy Intelligence
-    </p>
-    """,
-    unsafe_allow_html=True
-)
+if "page" not in st.session_state:
 
-st.sidebar.markdown("---")
+    st.session_state.page = "Welcome"
 
-page = st.sidebar.radio(
-    "📌 Navigate",
-    [
-        "🏠 Home",
-        "☀️ Solar Prediction",
-        "🌬️ Wind Prediction",
-        "📊 Analytics",
-        "🤖 AI Chatbot",
-        "ℹ️ About Project"
-    ]
-)
 
-st.sidebar.markdown("---")
+def go_to_page(page_name):
 
-st.sidebar.info(
-    "This application uses Machine Learning "
-    "and weather information to estimate "
-    "renewable energy production."
-)
+    st.session_state.page = page_name
+
+
+page = st.session_state.page
+
+# ==============================
+# WELCOME PAGE
+# ==============================
+
+if page == "Welcome":
+
+    st.markdown(
+        """
+        <div style="text-align:center; padding:60px 10px 30px;">
+            <h1>☀️ Renewable Energy AI</h1>
+            <h3>Powering a Greener Tomorrow 🌱</h3>
+            <p>
+            Smart predictions for a clean and sustainable future.
+            </p>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+
+    st.markdown("---")
+
+    col1, col2, col3 = st.columns([1, 2, 1])
+
+    with col2:
+
+        if st.button(
+            "🚀 GET STARTED",
+            use_container_width=True
+        ):
+
+            st.session_state.page = "🏠 Home"
+            st.rerun()
 
 
 # ==============================
 # HOME PAGE
 # ==============================
 
-if page == "🏠 Home":
+elif page == "🏠 Home":
+
+
+# ==============================
+# HOME PAGE
+# ==============================
+
 
     st.markdown(
         "<h1>☀️ Renewable Energy AI Predictor</h1>",
@@ -504,6 +523,68 @@ if page == "🏠 Home":
             """,
             unsafe_allow_html=True
         )
+# ==============================
+# MAIN MENU BUTTONS
+# ==============================
+
+st.subheader("🚀 Explore the Application")
+
+col1, col2 = st.columns(2)
+
+with col1:
+
+    if st.button(
+        "☀️ Solar Prediction",
+        use_container_width=True
+    ):
+
+        st.session_state.page = "☀️ Solar Prediction"
+        st.rerun()
+
+with col2:
+
+    if st.button(
+        "🌬️ Wind Prediction",
+        use_container_width=True
+    ):
+
+        st.session_state.page = "🌬️ Wind Prediction"
+        st.rerun()
+
+
+col3, col4 = st.columns(2)
+
+with col3:
+
+    if st.button(
+        "📊 Analytics",
+        use_container_width=True
+    ):
+
+        st.session_state.page = "📊 Analytics"
+        st.rerun()
+
+with col4:
+
+    if st.button(
+        "🤖 AI Chatbot",
+        use_container_width=True
+    ):
+
+        st.session_state.page = "🤖 AI Chatbot"
+        st.rerun()
+
+
+if st.button(
+    "ℹ️ About Project",
+    use_container_width=True
+):
+
+    st.session_state.page = "ℹ️ About Project"
+    st.rerun()
+
+st.markdown("---")
+
 
 # ==============================
 # SOLAR PREDICTION PAGE
