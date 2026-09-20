@@ -7,6 +7,7 @@ import os
 from sklearn.ensemble import RandomForestRegressor
 from chatbot import get_bot_response
 from weather import get_weather
+import base64
 
 
 # ==============================
