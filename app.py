@@ -139,6 +139,34 @@ h3 {
     font-size: 14px;
 }
 
+/* Page transition */
+
+.block-container {
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Smooth button animation */
+
+.stButton > button {
+    transition: transform 0.3s ease;
+}
+
+.stButton > button:hover {
+    transform: scale(1.03);
+}
+
 </style>
 """, unsafe_allow_html=True)
 
