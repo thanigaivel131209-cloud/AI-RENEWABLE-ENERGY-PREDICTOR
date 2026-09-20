@@ -71,8 +71,8 @@ st.markdown("""
 <style>
 
 .main {
-    background: linear-gradient(135deg, #e0f7fa, #ffffff);
-}
+    background: transparent;
+} 
 
 h1 {
     color: #0b5394;
